@@ -3,12 +3,14 @@ import React, { Component } from 'react';
 import axios from "axios";
 
 class Main extends Component {
-    state = { quote : {}} 
+    state = { quote : {}, style : {}} 
 
     getQuote = () => { axios.get("https://thesimpsonsquoteapi.glitch.me/quotes").then( 
         (response) => {
         this.setState({quote : response.data[0]});
         console.log(response.data[0]);
+        this.state.quote.characterDirection === "Left" ? this.setState({style : {flexDirection:"row-reverse"}})
+                : this.setState({style : {flexDirection:"row"}})
     })
 
         }
@@ -18,11 +20,13 @@ class Main extends Component {
             return(
                 <>
                     <button onClick= {() => this.getQuote() } >Eat My Shorts</button>
-                    <div className="text">
-                        <p>{this.state.quote.quote}</p>
-                        <p>{this.state.quote.character}</p>
+                    <div className="flexy" style={this.state.style}>
+                        <div className="text">
+                            <p>{this.state.quote.quote}</p>
+                            <p>{this.state.quote.character}</p>
+                        </div>
+                        <img src={this.state.quote.image} alt={this.state.quote.character} />
                     </div>
-                    <img src={this.state.quote.image} alt={this.state.quote.character} />
                 </>
             )
         }
