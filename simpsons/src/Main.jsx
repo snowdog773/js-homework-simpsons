@@ -5,7 +5,7 @@ import axios from "axios";
 class Main extends Component {
     state = { quote : {}, style : {}} 
 
-    getQuote = () => { axios.get("https://thesimpsonsquoteapi.glitch.me/quotes").then( 
+    getQuote = async () => { await axios.get("https://thesimpsonsquoteapi.glitch.me/quotes").then( 
         (response) => {
         this.setState({quote : response.data[0]});
         console.log(response.data[0]);
@@ -19,7 +19,7 @@ class Main extends Component {
         render() {
             return(
                 <>
-                    <button onClick= {() => this.getQuote() } >Eat My Shorts</button>
+                    
                     <div className="flexy" style={this.state.style}>
                         <div className="text">
                             <p>{this.state.quote.quote}</p>
@@ -27,6 +27,7 @@ class Main extends Component {
                         </div>
                         <img src={this.state.quote.image} alt={this.state.quote.character} />
                     </div>
+                    <button onClick= {() => this.getQuote() } >Eat My Shorts</button>
                 </>
             )
         }

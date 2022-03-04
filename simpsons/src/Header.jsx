@@ -5,7 +5,10 @@ class Header extends Component {
     render() { 
         return (
             <>
-                <h1>The Simpsons Quote-o-Matic</h1>
+                <header>
+                    <h1>The Simpsons Quote-o-Matic</h1>
+                    <p>Quote-o-Matic</p>
+                </header>
             </>
         );
     }

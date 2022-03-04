@@ -1,9 +1,13 @@
-
+@font-face {
+  font-family: kalam;
+  src: url(./Kalam-Bold.ttf);
+}
 body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   text-align: center;
+  background-color: aqua;
 }
 
 *,
@@ -13,9 +17,30 @@ body {
 }
 
 
+header {
+
+
+  height: 200px;
+  background-image: url(./The_logo_simpsons_yellow.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0;
+  background-color: aqua;
+  
+}
+
 h1 {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 4em;
+ margin: 0;
+ opacity: 0;
+}
+
+header p {
+  color: red;
+  padding-top: 60px;
+  font-size: 3em;
+  font-weight: 800;
+  font-family: kalam;
 }
 
 .flexy {
@@ -28,9 +53,10 @@ h1 {
   display: block;
   width: 40%;
   padding: 20px;
-  background-color: #ccf;
-  box-shadow: 0 0 20px 2px #ccf;
-  border-radius: 10px;
+  background-color: #ddd;
+  box-shadow: 0 0 20px 2px #bbb;
+  border-radius: 20px;
+
 }
 
 img {
