@@ -5,7 +5,7 @@ class Footer extends Component {
     render() { 
         return (
             <>
-            <span>Copyright 2022 - Jon Pitans Design</span>
+            <p>Copyright 2022 - Jon Pitans Design</p>
             </>
         );
     }

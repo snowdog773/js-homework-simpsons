@@ -5,7 +5,7 @@ class Header extends Component {
     render() { 
         return (
             <>
-                <h1>Welcome to the Simpsons Quote-o-Matic Machine</h1>
+                <h1>The Simpsons Quote-o-Matic</h1>
             </>
         );
     }
