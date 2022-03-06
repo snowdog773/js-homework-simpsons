@@ -20,7 +20,7 @@ body {
 header {
 
 
-  height: 200px;
+  height: 150px;
   background-image: url(./The_logo_simpsons_yellow.png);
   background-size: contain;
   background-repeat: no-repeat;
@@ -37,16 +37,26 @@ h1 {
 
 header p {
   color: red;
-  padding-top: 60px;
-  font-size: 3em;
+  padding-top: 40px;
+  font-size: 2em;
   font-weight: 800;
   font-family: kalam;
+  text-shadow: 3px 3px 2px #000;
+}
+.outer {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 }
 
 .flexy {
+  width: 70%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+}
+
+.off {
+  opacity: 0;
 }
 
 .text {
@@ -64,5 +74,25 @@ header p {
 img {
   display: block;
   max-height: 300px;
+  max-width: 300px;
   margin: 0 50px;
+}
+
+h2.names {
+  font-family: kalam;
+  color: red;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.likes {
+  font-family: kalam;
+
+}
+
+.scores {
+
 }

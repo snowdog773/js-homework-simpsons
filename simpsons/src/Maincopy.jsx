@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import Likebutton from './Button';
-import Scores from './Scores'
 import axios from "axios";
 
 class Main extends Component {
-    state = { quote : {}, style : {}, flexy : "off", score : []} 
+    state = { quote : {}, style : {}, flexy : "off", score : { homer : {likes:0,dislikes:0}}} 
 
     getQuote = async () => { await axios.get("https://thesimpsonsquoteapi.glitch.me/quotes")
     .then(  (response) => {
@@ -16,43 +15,35 @@ class Main extends Component {
                         this.state.quote.characterDirection === "Left" ? 
                         this.setState({style : {flexDirection:"row-reverse"}}) :
                         this.setState({style : {flexDirection:"row"}});
-                       
-      })
-    };
+  
 
-    updateScore = () => {
-// function to check the score array for the current character, and create a character score
-// object if one doesn't already exist. NB can I simplify the if statement???
-        if (this.state.score.find(e => e.name === this.state.quote.character) === undefined ) {
-    this.state.score.push({name: this.state.quote.character,
+    this.state.score.push({name: this.state.response.data[0].character,
         likes : 0,
         dislikes : 0});
-    }
-    }
+console.log(this.state.score)
+
+
+    })
+};
+
+                       
 
         updateLike = (action) => {
-        
-                this.updateScore();
-                this.state.score.map( (e) => {
-                    if (e.name === this.state.quote.character && action === "like") e.likes++;
-                    if (e.name === this.state.quote.character && action === "dislike") e.dislikes++;
-                    
-                })
-                console.log(this.state.score)
-                this.setState({});
-                //this.setstate is there to force a re-render. Is there a cleaner way to do this?
-                } 
-                
+            let {likes, dislikes} = this.state.score.homer;
+            if (action === "like") likes++;
+            if (action === "dislike") dislikes++;
+            this.setState({ score: { homer: { likes, dislikes } } });
+            console.log(this.state.score.homer)
 
         
-        
+        };
             
         
 
         render() {
             return(
                 <>
-                    <div className="outer">
+                    
                     <div className={this.state.flexy} style={this.state.style}>
                         <div className="text">
                             <p>{this.state.quote.quote}</p>
@@ -60,12 +51,10 @@ class Main extends Component {
                         </div>
                         <img src={this.state.quote.image} alt={this.state.quote.character} />
                     </div>
-                    <div className="scores">
-                        <Scores score={this.state.score} />
-                    </div>
-                    </div>
                     <button onClick= {() => this.getQuote() } >Eat My Shorts</button>
                     <Likebutton updateLike={this.updateLike} />
+
+                    <p>{this.state.counter}</p>
                 </>
             )
         

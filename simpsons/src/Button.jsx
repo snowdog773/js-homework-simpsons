@@ -10,10 +10,9 @@ class Button extends Component {
     render() { 
         return (
             <>
-            <button onClick={ () => this.getQuote() }>
-                Button
-               
-            </button>
+            <button onClick={ () => this.props.updateLike("like") }>Like</button>
+            <button onClick={ () => this.props.updateLike("dislike") }>Dislike</button>
+            
             </>
             
         );
