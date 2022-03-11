@@ -16,10 +16,7 @@ body {
   box-sizing: inherit;
 }
 
-
 header {
-
-
   height: 150px;
   background-image: url(./The_logo_simpsons_yellow.png);
   background-size: contain;
@@ -27,12 +24,12 @@ header {
   background-position: center;
   margin: 0 0 20px;
   background-color: aqua;
-  
 }
 
 h1 {
- margin: 0;
- opacity: 0;
+  margin: 0;
+  opacity: 0;
+  max-height: 40px;
 }
 
 header p {
@@ -43,15 +40,12 @@ header p {
   font-family: kalam;
   text-shadow: 3px 3px 2px #000;
 }
-.outer {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-}
 
 .flexy {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  min-height: 250px;
 }
 
 .off {
@@ -60,14 +54,13 @@ header p {
 
 .text {
   display: block;
-  width: 40%;
+  width: 30%;
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 20px 2px #bbb;
   border-radius: 40px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 1.3em;
-
 }
 
 img {
@@ -90,9 +83,62 @@ ul {
 
 .likes {
   font-family: kalam;
-
 }
 
 li span {
   font-size: 0.8em;
+}
+
+.button {
+  margin: 50px 5px 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  border-style: none;
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+.button:hover {
+  background: #fff;
+}
+
+.scores {
+  position: absolute;
+  display: block;
+  width: 100%;
+  text-align: center;
+  /* left: 10vw; */
+}
+
+@media (max-width: 600px) {
+  .flexy {
+    flex-direction: column;
+  }
+
+  .text {
+    font-size: 0.7em;
+    width: 90%;
+    padding: 10px;
+    border-radius: 15px;
+  }
+
+  img {
+    max-height: 150px;
+    margin-bottom: 10px;
+  }
+
+  header {
+    max-height: 100px;
+  }
+
+  header p {
+    margin-top: 0;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 2px #000;
+  }
+
+  .button {
+    font-size: 0.8em;
+  }
 }
